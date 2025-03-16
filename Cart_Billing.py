@@ -61,8 +61,8 @@ def calculate_bill(cart):
 
 def send_email(cart, total, recipient_email):
     """Sends the bill via email."""
-    sender_email = "2005anshi1089ind@gmail.com"
-    sender_password = "dbvz iwow tctk gdej"
+    sender_email = "your-email@example.com"
+    sender_password = "your-email-password"
 
     message = "Your Bill:\n\n"
     for item in cart:
@@ -75,10 +75,10 @@ def send_email(cart, total, recipient_email):
     msg["To"] = recipient_email
 
     try:
-        with smtplib.SMTP("smtp.gmail.com", 587) as server:
+        with smtplib.SMTP("smtp.example.com", 587) as server:
             server.starttls()
-            server.login("2005anshi1089ind@gmail.com", "dbvz iwow tctk gdej")
-            server.sendmail("2005anshi1089ind@gmail.com", recipient_email, msg.as_string())
+            server.login("your-email@example.com", "your-email-password")
+            server.sendmail("your-email@example.com", recipient_email, msg.as_string())
         print("Email sent successfully!")
     except Exception as e:
         print(f"Failed to send email: {e}")
